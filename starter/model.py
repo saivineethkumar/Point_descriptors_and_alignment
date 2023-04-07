@@ -1,5 +1,7 @@
 import torch
 from torch.nn import Sequential as Seq, Linear as Lin, LeakyReLU, GroupNorm
+from torchsummary import summary
+import torch.nn.functional as F
 
 # the "MLP" block that you will use the in the PointNet and CorrNet modules you will implement
 # This block is made of a linear transformation (FC layer), 
@@ -29,16 +31,30 @@ def MLP(channels, enable_group_norm=True):
 # - another MLP that further processes these 128-dimensional vectors into h_i (same number of dimensions)
 # - a max-pooling layer that collapses all point features h_i into a global shape representaton g
 # - a concat operation that concatenates (f_i, g) to create a new per-point descriptor that stores local+global information
-# - a MLP that transforms this concatenated descriptor into the output 32-dimensional descriptor x_i
+# - A MLP followed by a linear transformation layer that transform this concatenated descriptor into the output 32-dimensional descriptor x_i
 # **** YOU SHOULD CHANGE THIS MODULE, CURRENTLY IT IS INCORRECT ****
 class PointNet(torch.nn.Module):
     def __init__(self, num_input_features, num_output_features):
         super(PointNet, self).__init__()
-        self.mlp = MLP([num_input_features, num_output_features])
+        self.f_mlp1 = MLP([num_input_features, 32, 64, 128])
+        self.h_mlp2 = MLP([128, 128])
+        # self.g_maxpooling = True  #max pool to 128 dim vector
+        # self.g_reconstructed = True
+        self.y_mlp3 = MLP([256, 128, 64])
+        self.y_linear = Lin(64, num_output_features)
 
     def forward(self, x):
-        x = self.mlp(x)
-        return x
+        f = self.f_mlp1(x)
+        h = self.h_mlp2(f)
+        # g = self.g_maxpooling(h)
+        # g = self.g_reconstructed(g)
+        g,_ = torch.max(h, dim=0)
+        g = torch.unsqueeze(g, dim=0)
+        g = g.repeat(f.shape[0], 1)
+        fg = torch.cat((f,g), dim=1)
+        y = self.y_mlp3(fg)
+        y = self.y_linear(y)
+        return y
 
 
 # CorrNet module that serves 2 purposes:  
@@ -65,14 +81,46 @@ class CorrNet(torch.nn.Module):
         super(CorrNet, self).__init__()
         self.train_corrmask = train_corrmask
         self.pointnet_share = PointNet(3, num_output_features)
-        self.mlp = MLP([3, 1]) # you won't use this, delete it, this is there just for the code to run
+        
+        self.mlp = MLP([2*num_output_features +1, 64])
+        self.linear = Lin(64, 1)
 
     def forward(self, vtx, pts):
         out_vtx = self.pointnet_share(vtx)
         out_pts = self.pointnet_share(pts)
-        if self.train_corrmask:            
-            out_corrmask = self.mlp(vtx) # you won't use this, delete it, this is there just for the code to run
+        norms = torch.norm(out_vtx, dim=1, keepdim=True)
+        out_vtx = out_vtx/norms
+        norms = torch.norm(out_pts, dim=1, keepdim=True)
+        out_pts = out_pts/norms
+        
+        if self.train_corrmask:
+            Y = out_vtx
+            sMat = F.cosine_similarity(out_vtx.unsqueeze(1), out_pts.unsqueeze(0), dim=-1)
+            S, smaxIndices = torch.max(sMat, dim=1, keepdim=True)
+            smaxIndices = torch.squeeze(smaxIndices)
+            X = out_pts.index_select(dim=0, index=smaxIndices)
+
+            YXS = torch.cat((Y,X,S), dim=1)
+            out_corrmask = self.mlp(YXS)
+            out_corrmask = self.linear(out_corrmask)
+
         else:
             out_corrmask = None
 
         return out_vtx, out_pts, out_corrmask
+
+
+
+# Testing model 
+# model = PointNet(3, 32)
+# print(model)
+# input_tensor = torch.randn(11, 3)
+# output_tensor = model(input_tensor)
+# print(output_tensor.shape)
+
+# model = CorrNet(32, True)
+# print(model)
+# v_input = torch.randn(100, 3)
+# p_input = torch.randn(120, 3)
+# a,b,c = model(v_input, p_input)
+# print(a.shape, b.shape, c.shape)
