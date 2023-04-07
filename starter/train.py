@@ -159,13 +159,36 @@ def test(test_pts_filelist, model, args, save_results):
 #        a corr matrix Kx2 that stores K ground-truth pairs of corresponding vertices-points
 # the function should output the normalized temperature-scaled cross entropy loss
 # **** YOU SHOULD CHANGE THIS FUNCTION, CURRENTLY IT IS INCORRECT ****
-def NTcrossentropy(vtx_feature, pts_feature, corr, tau=0.01):
-    cross_entropy_loss = torch.nn.CrossEntropyLoss(reduction='mean')    
-    corr_vtx_feature = vtx_feature[corr[:, 0]]    
-    prod = torch.randn( corr_vtx_feature.size(0), pts_feature.size(0), requires_grad=True ).to(device)
-    label = corr[:, 1]
-    loss = cross_entropy_loss(prod, label)
-    return loss
+def NTcrossentropy(vtx_feature, pts_feature, corr, tau=0.07):
+    # sum over k in denominator
+    # loss_list = []
+    # loss_sum = 0
+    # for k in range(corr.shape[0]):
+    #     i,j = corr[k][0], corr[k][1]
+    #     loss_comp = torch.exp(torch.dot(vtx_feature[i], pts_feature[j])/tau)
+    #     loss_comp = loss_comp.item()
+    #     loss_list.append(loss_comp)
+    #     loss_sum += loss_comp
+    # loss_list = np.array(loss_list)
+    # loss_list = loss_list/loss_sum
+    # loss_list = -1*np.log(loss_list)
+    # loss = np.sum(loss_list)
+    # return loss
+
+    dotProdMat = torch.mm(vtx_feature, pts_feature.t())  # NxM size
+    dotProdMat = torch.exp(dotProdMat/tau)
+    rowSumArr = dotProdMat.sum(axis=1)
+    loss_list = []
+    loss_sum = 0
+    for k in range(corr.shape[0]):
+        i,j = corr[k][0], corr[k][1]
+        loss_comp = -1*torch.log(dotProdMat[i][j]/rowSumArr[i])
+        loss_list.append(loss_comp)
+        loss_sum += loss_comp
+    return loss_sum
+
+
+    
 
 # function to estimate a rotation matrix to align the vertices and the points based on the predicted reliable correspondences.
 # **** YOU SHOULD CHANGE THIS FUNCTION ****
@@ -274,7 +297,7 @@ if __name__ == "__main__":
     parser.add_argument("--lr", default=1e-2, type=float, help="Initial learning rate")
     parser.add_argument("--train_batch", default=8, type=int, help="Batch size for training")
     parser.add_argument("--train_corrmask", action="store_true", help="Train also the correspondence mask branch")    
-    parser.add_argument("--tau_nce", default=0.01, type=float, help="Parameter used in the temperature-scaled cross entropy loss")
+    parser.add_argument("--tau_nce", default=0.07, type=float, help="Parameter used in the temperature-scaled cross entropy loss")
 
  # various options for testing and evaluation
     parser.add_argument("--save_results", default=True, action="store_true", help="Save results during testing - useful for visualization")     
