@@ -5,6 +5,7 @@ import argparse
 import numpy as np
 import random
 from scipy.spatial.transform import Rotation
+import time
 
 import torch
 import torch.backends.cudnn as cudnn
@@ -194,7 +195,30 @@ def NTcrossentropy(vtx_feature, pts_feature, corr, tau=0.07):
 # function to estimate a rotation matrix to align the vertices and the points based on the predicted reliable correspondences.
 # **** YOU SHOULD CHANGE THIS FUNCTION ****
 def fit_rotation(vtx, pts, vtx_feature, pts_feature, corrmask):
-    R = Rotation.from_matrix([[0,-1,0], [1, 0, 0], [0, 0, 1]])
+    # vtx - Nx3, pts -Mx3, vtx_feature - NxF, pts_feature - MxF
+    vtx_ind_reliable = torch.where(corrmask>0.5)
+    vtx_feature = vtx_feature.to(device)
+    pts_feature = pts_feature.to(device)
+    sMat = torch.mm(vtx_feature, pts_feature.t())
+    _, smaxIndices = torch.max(sMat, dim=1, keepdim=True)
+    smaxIndices = torch.squeeze(smaxIndices)
+    pts_ind_reliable = smaxIndices[vtx_ind_reliable]
+
+    vtx_reliable = vtx[vtx_ind_reliable]
+    pts_relaible = pts[pts_ind_reliable]
+
+    vtx_centroid = torch.mean(vtx_reliable, dim=0)
+    pts_centroid = torch.mean(pts_relaible, dim=0)
+    vtx_centered = vtx_reliable - vtx_centroid
+    pts_centered = pts_relaible - pts_centroid
+
+    S = torch.matmul(vtx_centered.t(), pts_centered)
+    U,_,Vt = torch.linalg.svd(S)
+    optR = torch.matmul(U,Vt)
+    optR = optR.cpu()
+
+    R = Rotation.from_matrix(optR)
+    # R = Rotation.from_matrix([[0,-1,0], [1, 0, 0], [0, 0, 1]])
     return R.as_quat()
     # keep the following line, transform the estimated to rotation matrix to a quaternion
     # the starter code handles the rest
@@ -278,6 +302,7 @@ def main(args):
 
 
 if __name__ == "__main__":
+    start = time.time()
     parser = argparse.ArgumentParser(description='depth mesh corresponce')
     parser.add_argument("-e", "--evaluate", action="store_true", help="Activate test mode - Evaluate model on val/test set (no training)")    
 
@@ -310,3 +335,5 @@ if __name__ == "__main__":
 
     print(parser.parse_args())
     main(parser.parse_args())
+    end = time.time()
+    print(f"Total time it took to complete the train and test for train_corrmask:{parser.parse_args().train_corrmask}, distance_threshold:{parser.parse_args().distance_threshold} is {end-start}s")
