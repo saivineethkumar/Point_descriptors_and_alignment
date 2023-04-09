@@ -1,0 +1,535 @@
+Namespace(evaluate=False, checkpoint_folder='checkpoints/', resume_file='model_best.pth.tar', train_folder='dataset/train/', val_folder='dataset/val/', test_folder='dataset/test/', num_output_features=32, start_epoch=0, schedule=[40], gamma=0.1, epochs=100, weight_decay=0.001, lr=0.01, train_batch=8, train_corrmask=False, tau_nce=0.07, save_results=True, test_batch=8, distance_threshold=0.04)
+Creating new checkpoint folder checkpoints/
+=> Will use the (cuda) device.
+=> No previous checkpoint found at 'checkpoints/model_best.pth.tar'
+=> Total params: 0.08M
+=> Will now train the feature extractor
+
+Epoch: 1 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch1. train_loss: 3653.82252284. train_acc: 0.35130489.
+Epoch1. val_loss: 3397.89598083. val_acc: 0.50698578.
+Epoch1. test_loss: 3335.61636353. test_acc: 0.52393019.
+
+Epoch: 2 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch2. train_loss: 3216.65023804. train_acc: 0.60960276.
+Epoch2. val_loss: 3157.31466675. val_acc: 0.66606879.
+Epoch2. test_loss: 3077.85675049. test_acc: 0.67663550.
+
+Epoch: 3 | LR: 0.01000000
+Epoch3. train_loss: 2985.76989310. train_acc: 0.63910032.
+Epoch3. val_loss: 2976.75395203. val_acc: 0.61553395.
+Epoch3. test_loss: 2911.98242188. test_acc: 0.65810776.
+
+Epoch: 4 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch4. train_loss: 2822.32418387. train_acc: 0.68596131.
+Epoch4. val_loss: 2736.69604492. val_acc: 0.72423065.
+Epoch4. test_loss: 2741.39956665. test_acc: 0.74181604.
+
+Epoch: 5 | LR: 0.01000000
+Epoch5. train_loss: 2671.24996512. train_acc: 0.72041441.
+Epoch5. val_loss: 2660.38784790. val_acc: 0.72121590.
+Epoch5. test_loss: 2664.73919678. test_acc: 0.73032695.
+
+Epoch: 6 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch6. train_loss: 2580.47358050. train_acc: 0.73097407.
+Epoch6. val_loss: 2479.58100891. val_acc: 0.72725385.
+Epoch6. test_loss: 2485.70886230. test_acc: 0.75145644.
+
+Epoch: 7 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch7. train_loss: 2473.41107614. train_acc: 0.74205361.
+Epoch7. val_loss: 2450.99427795. val_acc: 0.73643088.
+Epoch7. test_loss: 2398.93536377. test_acc: 0.75979155.
+
+Epoch: 8 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch8. train_loss: 2375.59451294. train_acc: 0.75431463.
+Epoch8. val_loss: 2337.23139954. val_acc: 0.74600619.
+Epoch8. test_loss: 2350.78355408. test_acc: 0.76793921.
+
+Epoch: 9 | LR: 0.01000000
+Epoch9. train_loss: 2291.35320173. train_acc: 0.75888097.
+Epoch9. val_loss: 2250.45211792. val_acc: 0.73157191.
+Epoch9. test_loss: 2280.65733337. test_acc: 0.75304174.
+
+Epoch: 10 | LR: 0.01000000
+Epoch10. train_loss: 2222.27106149. train_acc: 0.75926597.
+Epoch10. val_loss: 2218.36422729. val_acc: 0.74366856.
+Epoch10. test_loss: 2197.35014343. test_acc: 0.75132096.
+
+Epoch: 11 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch11. train_loss: 2204.81950596. train_acc: 0.75695327.
+Epoch11. val_loss: 2261.28677368. val_acc: 0.75061262.
+Epoch11. test_loss: 2193.23490906. test_acc: 0.77987349.
+
+Epoch: 12 | LR: 0.01000000
+Epoch12. train_loss: 2169.34960066. train_acc: 0.75733667.
+Epoch12. val_loss: 2162.25946045. val_acc: 0.74488235.
+Epoch12. test_loss: 2195.59091187. test_acc: 0.77922946.
+
+Epoch: 13 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch13. train_loss: 2105.56458827. train_acc: 0.76809508.
+Epoch13. val_loss: 2129.87268066. val_acc: 0.75503588.
+Epoch13. test_loss: 2044.47988129. test_acc: 0.77552861.
+
+Epoch: 14 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch14. train_loss: 2057.25891331. train_acc: 0.77752763.
+Epoch14. val_loss: 2103.13639832. val_acc: 0.77217025.
+Epoch14. test_loss: 2194.65594482. test_acc: 0.78564340.
+
+Epoch: 15 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch15. train_loss: 2028.07476153. train_acc: 0.78029905.
+Epoch15. val_loss: 2070.09441376. val_acc: 0.77783918.
+Epoch15. test_loss: 2081.38630676. test_acc: 0.78692120.
+
+Epoch: 16 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch16. train_loss: 1973.23908343. train_acc: 0.78174726.
+Epoch16. val_loss: 1985.13034821. val_acc: 0.78669572.
+Epoch16. test_loss: 2021.02310944. test_acc: 0.80114686.
+
+Epoch: 17 | LR: 0.01000000
+Epoch17. train_loss: 1908.52587237. train_acc: 0.79460411.
+Epoch17. val_loss: 1927.27188873. val_acc: 0.78499830.
+Epoch17. test_loss: 1976.61730194. test_acc: 0.80534691.
+
+Epoch: 18 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch18. train_loss: 1870.00682722. train_acc: 0.80371408.
+Epoch18. val_loss: 1908.12786102. val_acc: 0.80314338.
+Epoch18. test_loss: 1903.90549469. test_acc: 0.81149471.
+
+Epoch: 19 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch19. train_loss: 1828.68628148. train_acc: 0.82162361.
+Epoch19. val_loss: 1887.22716522. val_acc: 0.84062469.
+Epoch19. test_loss: 1847.42823029. test_acc: 0.84710884.
+
+Epoch: 20 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch20. train_loss: 1793.64843750. train_acc: 0.86392181.
+Epoch20. val_loss: 1834.03264618. val_acc: 0.87944752.
+Epoch20. test_loss: 1888.56999969. test_acc: 0.87585336.
+
+Epoch: 21 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch21. train_loss: 1775.09718759. train_acc: 0.91534305.
+Epoch21. val_loss: 1848.40446472. val_acc: 0.92399299.
+Epoch21. test_loss: 1822.59635162. test_acc: 0.93384308.
+
+Epoch: 22 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch22. train_loss: 1722.84167045. train_acc: 0.95581378.
+Epoch22. val_loss: 1814.26828766. val_acc: 0.96105182.
+Epoch22. test_loss: 1809.56670380. test_acc: 0.96405989.
+
+Epoch: 23 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch23. train_loss: 1690.92241778. train_acc: 0.97214890.
+Epoch23. val_loss: 1709.62933350. val_acc: 0.97291768.
+Epoch23. test_loss: 1728.39094543. test_acc: 0.96108735.
+
+Epoch: 24 | LR: 0.01000000
+Epoch24. train_loss: 1643.13855634. train_acc: 0.97407201.
+Epoch24. val_loss: 1795.07003021. val_acc: 0.96597540.
+Epoch24. test_loss: 1821.11917114. test_acc: 0.97089738.
+
+Epoch: 25 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch25. train_loss: 1652.77074977. train_acc: 0.98412339.
+Epoch25. val_loss: 1666.94981384. val_acc: 0.98253512.
+Epoch25. test_loss: 1743.37771606. test_acc: 0.96769428.
+
+Epoch: 26 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch26. train_loss: 1598.03673444. train_acc: 0.98581806.
+Epoch26. val_loss: 1593.35927582. val_acc: 0.98995340.
+Epoch26. test_loss: 1699.47823334. test_acc: 0.99080086.
+
+Epoch: 27 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch27. train_loss: 1530.69842965. train_acc: 0.99071234.
+Epoch27. val_loss: 1541.77603149. val_acc: 0.99361151.
+Epoch27. test_loss: 1644.60474396. test_acc: 0.98990482.
+
+Epoch: 28 | LR: 0.01000000
+Epoch28. train_loss: 1492.90132359. train_acc: 0.99402719.
+Epoch28. val_loss: 1503.17391205. val_acc: 0.99006671.
+Epoch28. test_loss: 1573.76601410. test_acc: 0.98708761.
+
+Epoch: 29 | LR: 0.01000000
+Epoch29. train_loss: 1440.25570461. train_acc: 0.99413311.
+Epoch29. val_loss: 1505.70678711. val_acc: 0.99264258.
+Epoch29. test_loss: 1578.39880371. test_acc: 0.98995614.
+
+Epoch: 30 | LR: 0.01000000
+Epoch30. train_loss: 1407.41477748. train_acc: 0.99610300.
+Epoch30. val_loss: 1475.91137695. val_acc: 0.98925704.
+Epoch30. test_loss: 1565.77236176. test_acc: 0.98704934.
+
+Epoch: 31 | LR: 0.01000000
+Epoch31. train_loss: 1417.66027396. train_acc: 0.99553266.
+Epoch31. val_loss: 1465.26183319. val_acc: 0.99281603.
+Epoch31. test_loss: 1554.78850555. test_acc: 0.98808378.
+
+Epoch: 32 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch32. train_loss: 1428.24706377. train_acc: 0.99577324.
+Epoch32. val_loss: 1498.07878113. val_acc: 0.99560404.
+Epoch32. test_loss: 1494.16779327. test_acc: 0.99372226.
+
+Epoch: 33 | LR: 0.01000000
+Epoch33. train_loss: 1401.05485317. train_acc: 0.99626390.
+Epoch33. val_loss: 1409.62794495. val_acc: 0.99428803.
+Epoch33. test_loss: 1516.42747498. test_acc: 0.98601794.
+
+Epoch: 34 | LR: 0.01000000
+Epoch34. train_loss: 1373.65154157. train_acc: 0.99653658.
+Epoch34. val_loss: 1410.86087799. val_acc: 0.99465311.
+Epoch34. test_loss: 1510.98936462. test_acc: 0.98822844.
+
+Epoch: 35 | LR: 0.01000000
+Epoch35. train_loss: 1359.65572684. train_acc: 0.99722155.
+Epoch35. val_loss: 1434.48116302. val_acc: 0.99306619.
+Epoch35. test_loss: 1490.80600739. test_acc: 0.98785579.
+
+Epoch: 36 | LR: 0.01000000
+Epoch36. train_loss: 1318.18528966. train_acc: 0.99751953.
+Epoch36. val_loss: 1384.19120789. val_acc: 0.99480265.
+Epoch36. test_loss: 1469.33930969. test_acc: 0.99258590.
+
+Epoch: 37 | LR: 0.01000000
+Epoch37. train_loss: 1291.12255859. train_acc: 0.99743868.
+Epoch37. val_loss: 1359.81278229. val_acc: 0.99448329.
+Epoch37. test_loss: 1456.57768250. test_acc: 0.99036276.
+
+Epoch: 38 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch38. train_loss: 1278.07227434. train_acc: 0.99812404.
+Epoch38. val_loss: 1328.14898682. val_acc: 0.99667269.
+Epoch38. test_loss: 1457.34587097. test_acc: 0.99165118.
+
+Epoch: 39 | LR: 0.01000000
+=> Current model is the best according to validation accuracy
+Epoch39. train_loss: 1229.40672520. train_acc: 0.99774471.
+Epoch39. val_loss: 1324.48135376. val_acc: 0.99686235.
+Epoch39. test_loss: 1355.43182373. test_acc: 0.99192774.
+
+Epoch: 40 | LR: 0.01000000
+Epoch40. train_loss: 1233.91821507. train_acc: 0.99791526.
+Epoch40. val_loss: 1313.70987701. val_acc: 0.99667996.
+Epoch40. test_loss: 1362.71050262. test_acc: 0.99380112.
+
+Epoch: 41 | LR: 0.00100000
+=> Current model is the best according to validation accuracy
+Epoch41. train_loss: 1179.40760149. train_acc: 0.99820092.
+Epoch41. val_loss: 1259.62178040. val_acc: 0.99686551.
+Epoch41. test_loss: 1386.57708740. test_acc: 0.98885107.
+
+Epoch: 42 | LR: 0.00100000
+=> Current model is the best according to validation accuracy
+Epoch42. train_loss: 1157.89145006. train_acc: 0.99798065.
+Epoch42. val_loss: 1240.33861542. val_acc: 0.99693835.
+Epoch42. test_loss: 1331.11815643. test_acc: 0.98739415.
+
+Epoch: 43 | LR: 0.00100000
+=> Current model is the best according to validation accuracy
+Epoch43. train_loss: 1145.93031529. train_acc: 0.99798319.
+Epoch43. val_loss: 1244.16033936. val_acc: 0.99745113.
+Epoch43. test_loss: 1356.10618591. test_acc: 0.98932093.
+
+Epoch: 44 | LR: 0.00100000
+Epoch44. train_loss: 1137.74615261. train_acc: 0.99858214.
+Epoch44. val_loss: 1236.95427704. val_acc: 0.99724543.
+Epoch44. test_loss: 1328.25521851. test_acc: 0.99182254.
+
+Epoch: 45 | LR: 0.00100000
+Epoch45. train_loss: 1131.94710650. train_acc: 0.99780982.
+Epoch45. val_loss: 1239.00338745. val_acc: 0.99725062.
+Epoch45. test_loss: 1340.23935699. test_acc: 0.99076289.
+
+Epoch: 46 | LR: 0.00100000
+Epoch46. train_loss: 1123.15709359. train_acc: 0.99817756.
+Epoch46. val_loss: 1224.90547180. val_acc: 0.99723107.
+Epoch46. test_loss: 1330.90759277. test_acc: 0.99062061.
+
+Epoch: 47 | LR: 0.00100000
+Epoch47. train_loss: 1122.21998269. train_acc: 0.99846054.
+Epoch47. val_loss: 1237.90339661. val_acc: 0.99675721.
+Epoch47. test_loss: 1353.67935944. test_acc: 0.99023187.
+
+Epoch: 48 | LR: 0.00100000
+Epoch48. train_loss: 1116.60912977. train_acc: 0.99817931.
+Epoch48. val_loss: 1222.46121979. val_acc: 0.99704301.
+Epoch48. test_loss: 1320.14988708. test_acc: 0.99015027.
+
+Epoch: 49 | LR: 0.00100000
+=> Current model is the best according to validation accuracy
+Epoch49. train_loss: 1111.76739611. train_acc: 0.99800945.
+Epoch49. val_loss: 1232.58787537. val_acc: 0.99748009.
+Epoch49. test_loss: 1316.46061707. test_acc: 0.99073076.
+
+Epoch: 50 | LR: 0.00100000
+Epoch50. train_loss: 1108.05113983. train_acc: 0.99817666.
+Epoch50. val_loss: 1234.32767487. val_acc: 0.99705178.
+Epoch50. test_loss: 1346.47093201. test_acc: 0.98932785.
+
+Epoch: 51 | LR: 0.00100000
+=> Current model is the best according to validation accuracy
+Epoch51. train_loss: 1105.07366616. train_acc: 0.99809322.
+Epoch51. val_loss: 1222.20777130. val_acc: 0.99764651.
+Epoch51. test_loss: 1316.02962494. test_acc: 0.99124306.
+
+Epoch: 52 | LR: 0.00100000
+Epoch52. train_loss: 1100.93591963. train_acc: 0.99796924.
+Epoch52. val_loss: 1213.58478546. val_acc: 0.99675339.
+Epoch52. test_loss: 1318.05307770. test_acc: 0.98933929.
+
+Epoch: 53 | LR: 0.00100000
+Epoch53. train_loss: 1095.90206800. train_acc: 0.99808833.
+Epoch53. val_loss: 1221.60908508. val_acc: 0.99646163.
+Epoch53. test_loss: 1311.71633911. test_acc: 0.98934531.
+
+Epoch: 54 | LR: 0.00100000
+Epoch54. train_loss: 1092.94713157. train_acc: 0.99809193.
+Epoch54. val_loss: 1216.83770752. val_acc: 0.99706250.
+Epoch54. test_loss: 1320.87346649. test_acc: 0.99218595.
+
+Epoch: 55 | LR: 0.00100000
+Epoch55. train_loss: 1089.06262207. train_acc: 0.99821034.
+Epoch55. val_loss: 1200.34073639. val_acc: 0.99626660.
+Epoch55. test_loss: 1315.00382233. test_acc: 0.98822951.
+
+Epoch: 56 | LR: 0.00100000
+Epoch56. train_loss: 1084.19044713. train_acc: 0.99829036.
+Epoch56. val_loss: 1205.41061401. val_acc: 0.99666649.
+Epoch56. test_loss: 1295.62704468. test_acc: 0.99124545.
+
+Epoch: 57 | LR: 0.00100000
+Epoch57. train_loss: 1084.40342058. train_acc: 0.99840347.
+Epoch57. val_loss: 1202.03279114. val_acc: 0.99676269.
+Epoch57. test_loss: 1307.24340820. test_acc: 0.99096322.
+
+Epoch: 58 | LR: 0.00100000
+Epoch58. train_loss: 1073.31483350. train_acc: 0.99847272.
+Epoch58. val_loss: 1205.63425446. val_acc: 0.99676776.
+Epoch58. test_loss: 1304.99128723. test_acc: 0.99065357.
+
+Epoch: 59 | LR: 0.00100000
+Epoch59. train_loss: 1071.25668008. train_acc: 0.99840979.
+Epoch59. val_loss: 1194.45413971. val_acc: 0.99647361.
+Epoch59. test_loss: 1297.89543152. test_acc: 0.99097067.
+
+Epoch: 60 | LR: 0.00100000
+Epoch60. train_loss: 1074.36154393. train_acc: 0.99860606.
+Epoch60. val_loss: 1203.61402893. val_acc: 0.99708873.
+Epoch60. test_loss: 1288.46562195. test_acc: 0.98982906.
+
+Epoch: 61 | LR: 0.00100000
+Epoch61. train_loss: 1070.08499363. train_acc: 0.99843711.
+Epoch61. val_loss: 1187.91490936. val_acc: 0.99648249.
+Epoch61. test_loss: 1288.69185638. test_acc: 0.99015725.
+
+Epoch: 62 | LR: 0.00100000
+Epoch62. train_loss: 1062.81328365. train_acc: 0.99820223.
+Epoch62. val_loss: 1180.18903351. val_acc: 0.99626327.
+Epoch62. test_loss: 1295.18610382. test_acc: 0.99063158.
+
+Epoch: 63 | LR: 0.00100000
+Epoch63. train_loss: 1064.42348153. train_acc: 0.99841437.
+Epoch63. val_loss: 1190.32503510. val_acc: 0.99763566.
+Epoch63. test_loss: 1308.68704224. test_acc: 0.99083591.
+
+Epoch: 64 | LR: 0.00100000
+Epoch64. train_loss: 1061.47873797. train_acc: 0.99834960.
+Epoch64. val_loss: 1171.57017517. val_acc: 0.99628377.
+Epoch64. test_loss: 1295.61067963. test_acc: 0.99076128.
+
+Epoch: 65 | LR: 0.00100000
+Epoch65. train_loss: 1057.68699537. train_acc: 0.99834747.
+Epoch65. val_loss: 1185.90087128. val_acc: 0.99629164.
+Epoch65. test_loss: 1258.58522797. test_acc: 0.99326009.
+
+Epoch: 66 | LR: 0.00100000
+Epoch66. train_loss: 1053.89251600. train_acc: 0.99837599.
+Epoch66. val_loss: 1188.37252045. val_acc: 0.99589425.
+Epoch66. test_loss: 1271.81848145. test_acc: 0.99137491.
+
+Epoch: 67 | LR: 0.00100000
+Epoch67. train_loss: 1049.54159655. train_acc: 0.99857468.
+Epoch67. val_loss: 1182.39405823. val_acc: 0.99549556.
+Epoch67. test_loss: 1252.65122223. test_acc: 0.99345022.
+
+Epoch: 68 | LR: 0.00100000
+Epoch68. train_loss: 1045.08298383. train_acc: 0.99837092.
+Epoch68. val_loss: 1187.44130707. val_acc: 0.99581617.
+Epoch68. test_loss: 1274.92390442. test_acc: 0.99094307.
+
+Epoch: 69 | LR: 0.00100000
+Epoch69. train_loss: 1040.12261200. train_acc: 0.99840645.
+Epoch69. val_loss: 1163.42942047. val_acc: 0.99645680.
+Epoch69. test_loss: 1251.67798615. test_acc: 0.99349338.
+
+Epoch: 70 | LR: 0.00100000
+Epoch70. train_loss: 1038.53583200. train_acc: 0.99837424.
+Epoch70. val_loss: 1173.76815033. val_acc: 0.99569309.
+Epoch70. test_loss: 1242.18637848. test_acc: 0.99254781.
+
+Epoch: 71 | LR: 0.00100000
+Epoch71. train_loss: 1037.36871992. train_acc: 0.99840210.
+Epoch71. val_loss: 1168.13902283. val_acc: 0.99675584.
+Epoch71. test_loss: 1268.92699432. test_acc: 0.99166894.
+
+Epoch: 72 | LR: 0.00100000
+Epoch72. train_loss: 1032.87965829. train_acc: 0.99854561.
+Epoch72. val_loss: 1176.31164551. val_acc: 0.99559528.
+Epoch72. test_loss: 1256.46609497. test_acc: 0.99136549.
+
+Epoch: 73 | LR: 0.00100000
+Epoch73. train_loss: 1031.48434012. train_acc: 0.99837169.
+Epoch73. val_loss: 1150.66774750. val_acc: 0.99595928.
+Epoch73. test_loss: 1249.55909729. test_acc: 0.99133468.
+
+Epoch: 74 | LR: 0.00100000
+Epoch74. train_loss: 1028.87367249. train_acc: 0.99845378.
+Epoch74. val_loss: 1159.94109344. val_acc: 0.99568433.
+Epoch74. test_loss: 1258.91475677. test_acc: 0.99116457.
+
+Epoch: 75 | LR: 0.00100000
+Epoch75. train_loss: 1022.56852177. train_acc: 0.99848053.
+Epoch75. val_loss: 1165.50303650. val_acc: 0.99599850.
+Epoch75. test_loss: 1251.59777069. test_acc: 0.99337810.
+
+Epoch: 76 | LR: 0.00100000
+Epoch76. train_loss: 1020.93725477. train_acc: 0.99865091.
+Epoch76. val_loss: 1155.87715149. val_acc: 0.99657643.
+Epoch76. test_loss: 1226.45358276. test_acc: 0.99224555.
+
+Epoch: 77 | LR: 0.00100000
+Epoch77. train_loss: 1016.72899519. train_acc: 0.99867902.
+Epoch77. val_loss: 1156.89183807. val_acc: 0.99589556.
+Epoch77. test_loss: 1221.35530853. test_acc: 0.99356580.
+
+Epoch: 78 | LR: 0.00100000
+Epoch78. train_loss: 1014.10667855. train_acc: 0.99853962.
+Epoch78. val_loss: 1147.23116302. val_acc: 0.99557483.
+Epoch78. test_loss: 1235.40211487. test_acc: 0.99182677.
+
+Epoch: 79 | LR: 0.00100000
+Epoch79. train_loss: 1012.58830370. train_acc: 0.99859692.
+Epoch79. val_loss: 1152.27484894. val_acc: 0.99629164.
+Epoch79. test_loss: 1234.46887207. test_acc: 0.99122787.
+
+Epoch: 80 | LR: 0.00100000
+Epoch80. train_loss: 1012.56305477. train_acc: 0.99861996.
+Epoch80. val_loss: 1138.96108246. val_acc: 0.99578613.
+Epoch80. test_loss: 1238.35881042. test_acc: 0.99203497.
+
+Epoch: 81 | LR: 0.00100000
+Epoch81. train_loss: 1005.89231873. train_acc: 0.99850928.
+Epoch81. val_loss: 1144.47629547. val_acc: 0.99557680.
+Epoch81. test_loss: 1255.91886902. test_acc: 0.99093372.
+
+Epoch: 82 | LR: 0.00100000
+Epoch82. train_loss: 1001.91493443. train_acc: 0.99870884.
+Epoch82. val_loss: 1149.56075287. val_acc: 0.99688190.
+Epoch82. test_loss: 1226.05114746. test_acc: 0.99162936.
+
+Epoch: 83 | LR: 0.00100000
+Epoch83. train_loss: 1000.18407549. train_acc: 0.99845522.
+Epoch83. val_loss: 1130.73517609. val_acc: 0.99519527.
+Epoch83. test_loss: 1219.54535675. test_acc: 0.99132264.
+
+Epoch: 84 | LR: 0.00100000
+Epoch84. train_loss: 995.61439187. train_acc: 0.99848220.
+Epoch84. val_loss: 1127.52811432. val_acc: 0.99598151.
+Epoch84. test_loss: 1221.17455292. test_acc: 0.99244195.
+
+Epoch: 85 | LR: 0.00100000
+Epoch85. train_loss: 994.67206573. train_acc: 0.99853531.
+Epoch85. val_loss: 1134.80566406. val_acc: 0.99629575.
+Epoch85. test_loss: 1201.34940338. test_acc: 0.99417192.
+
+Epoch: 86 | LR: 0.00100000
+Epoch86. train_loss: 985.03953552. train_acc: 0.99868018.
+Epoch86. val_loss: 1128.11187744. val_acc: 0.99685210.
+Epoch86. test_loss: 1217.20925140. test_acc: 0.99215609.
+
+Epoch: 87 | LR: 0.00100000
+Epoch87. train_loss: 986.41327013. train_acc: 0.99854361.
+Epoch87. val_loss: 1131.83625412. val_acc: 0.99626535.
+Epoch87. test_loss: 1209.27275848. test_acc: 0.99233270.
+
+Epoch: 88 | LR: 0.00100000
+Epoch88. train_loss: 979.83634404. train_acc: 0.99856375.
+Epoch88. val_loss: 1137.26975250. val_acc: 0.99628663.
+Epoch88. test_loss: 1200.20899963. test_acc: 0.99297476.
+
+Epoch: 89 | LR: 0.00100000
+Epoch89. train_loss: 979.60696956. train_acc: 0.99850383.
+Epoch89. val_loss: 1130.68492508. val_acc: 0.99628323.
+Epoch89. test_loss: 1206.84127808. test_acc: 0.99305582.
+
+Epoch: 90 | LR: 0.00100000
+Epoch90. train_loss: 974.94309017. train_acc: 0.99864299.
+Epoch90. val_loss: 1109.93231201. val_acc: 0.99547607.
+Epoch90. test_loss: 1177.01031494. test_acc: 0.99386245.
+
+Epoch: 91 | LR: 0.00100000
+Epoch91. train_loss: 975.19542694. train_acc: 0.99851138.
+Epoch91. val_loss: 1113.21628189. val_acc: 0.99666429.
+Epoch91. test_loss: 1207.78879547. test_acc: 0.99302292.
+
+Epoch: 92 | LR: 0.00100000
+Epoch92. train_loss: 969.06170545. train_acc: 0.99850881.
+Epoch92. val_loss: 1125.93034744. val_acc: 0.99668461.
+Epoch92. test_loss: 1211.41049194. test_acc: 0.99306977.
+
+Epoch: 93 | LR: 0.00100000
+Epoch93. train_loss: 964.03609140. train_acc: 0.99842209.
+Epoch93. val_loss: 1114.19743347. val_acc: 0.99597138.
+Epoch93. test_loss: 1202.14260101. test_acc: 0.99236917.
+
+Epoch: 94 | LR: 0.00100000
+Epoch94. train_loss: 963.52357592. train_acc: 0.99868042.
+Epoch94. val_loss: 1102.53645325. val_acc: 0.99577236.
+Epoch94. test_loss: 1192.44712830. test_acc: 0.99354702.
+
+Epoch: 95 | LR: 0.00100000
+Epoch95. train_loss: 957.82934134. train_acc: 0.99876260.
+Epoch95. val_loss: 1103.04804993. val_acc: 0.99645805.
+Epoch95. test_loss: 1178.88709259. test_acc: 0.99498057.
+
+Epoch: 96 | LR: 0.00100000
+Epoch96. train_loss: 958.55501556. train_acc: 0.99865757.
+Epoch96. val_loss: 1116.36942291. val_acc: 0.99588084.
+Epoch96. test_loss: 1199.66622925. test_acc: 0.99408317.
+
+Epoch: 97 | LR: 0.00100000
+Epoch97. train_loss: 950.01405770. train_acc: 0.99879402.
+Epoch97. val_loss: 1115.19130707. val_acc: 0.99668539.
+Epoch97. test_loss: 1196.47030640. test_acc: 0.99325848.
+
+Epoch: 98 | LR: 0.00100000
+Epoch98. train_loss: 949.96297237. train_acc: 0.99853043.
+Epoch98. val_loss: 1094.67780304. val_acc: 0.99609530.
+Epoch98. test_loss: 1170.78206253. test_acc: 0.99414814.
+
+Epoch: 99 | LR: 0.00100000
+Epoch99. train_loss: 944.54798017. train_acc: 0.99881698.
+Epoch99. val_loss: 1099.94468689. val_acc: 0.99608731.
+Epoch99. test_loss: 1165.40353394. test_acc: 0.99479347.
+
+Epoch: 100 | LR: 0.00100000
+Epoch100. train_loss: 943.14710454. train_acc: 0.99878642.
+Epoch100. val_loss: 1104.65904999. val_acc: 0.99608260.
+Epoch100. test_loss: 1153.76889038. test_acc: 0.99497825.
+Total time it took to complete the train and test for train_corrmask:False, distance_threshold:0.04 is 4728.054051399231s
