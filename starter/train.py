@@ -165,15 +165,21 @@ def NTcrossentropy(vtx_feature, pts_feature, corr, tau=0.07):
     pts_feature = pts_feature.to(device)
     dotProdMat = torch.mm(vtx_feature, pts_feature.t())  # NxM size
     dotProdMat = torch.exp(dotProdMat/tau)
-    rowSumArr = dotProdMat.sum(axis=1)
-    loss_list = []
-    loss_sum = 0
-    for k in range(corr.shape[0]):
-        i,j = corr[k][0], corr[k][1]
-        loss_comp = -1*torch.log(dotProdMat[i][j]/rowSumArr[i])
-        loss_list.append(loss_comp)
-        loss_sum += loss_comp
-    return loss_sum
+    loss = torch.sum(-1*torch.log(dotProdMat[corr[:,0],corr[:,1]]/torch.sum(dotProdMat[corr[:,0]], axis=1)))
+    return loss
+    
+    # rowSumArr = dotProdMat.sum(axis=1)
+    # loss_list = []
+    # loss_sum = 0
+    # for k in range(corr.shape[0]):
+    #     i,j = corr[k][0], corr[k][1]
+    #     loss_comp = -1*torch.log(dotProdMat[i][j]/rowSumArr[i])
+    #     loss_list.append(loss_comp)
+    #     loss_sum += loss_comp
+    # # if not torch.isclose(ans, loss_sum):
+    # #     print("==========================================================")
+    # # print(ans, " ", loss_sum," ", torch.isclose(ans,loss_sum) )
+    # return loss_sum
 
 
     
